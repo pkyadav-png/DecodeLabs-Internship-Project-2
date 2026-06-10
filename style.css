@@ -1,0 +1,429 @@
+/* --- 1. DESIGN THEME & UNIVERSAL RESET (Page 1, 6) --- */
+:root {
+    --primary: #007acc;      /* Teal/Blue Accent from Kit */
+    --dark: #1e293b;         /* Dark Slate for typography */
+    --light-bg: #f8fafc;     /* Clean light blueprint background */
+    --accent-blue: #e0f2fe;  /* Fluid volume layout background */
+    --text-muted: #64748b;   /* Secondary descriptive text */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden; /* Avoid structural overflow errors */
+    background-color: var(--light-bg);
+    color: var(--dark);
+}
+
+/* --- 2. BASE MOBILE CORE STYLES (0px to 767px Layout) --- */
+
+/* Navbar Mobile Structural Setup */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+/* Hidden Checkbox for Navigation Hack */
+#menu-checkbox {
+    display: none;
+}
+
+/* Pure CSS Hamburger Button Controller */
+.hamburger-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger-label span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Nav Links Dropdown for Mobile default position */
+.nav-links {
+    display: none; /* Hide link structures by default */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 8px 0;
+    transition: color 0.2s;
+}
+
+/* 🔥 THE CSS INTERACTIVE DRIVER: Checkbox Checked State Toggle */
+#menu-checkbox:checked ~ .nav-links {
+    display: flex; /* Displays mobile links grid on click */
+}
+
+/* Hamburger to 'X' Transformation Matrix */
+#menu-checkbox:checked ~ .hamburger-label span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+#menu-checkbox:checked ~ .hamburger-label span:nth-child(2) {
+    opacity: 0;
+}
+#menu-checkbox:checked ~ .hamburger-label span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* Hero Component Mobile Specs */
+.hero {
+    display: flex;
+    flex-direction: column; /* One-dimensional column stack on mobile */
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+.badge {
+    background-color: var(--accent-blue);
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.quote {
+    font-style: italic;
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+    padding-left: 12px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.sub-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.btn {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Fluid Asset Box Visualization */
+.fluid-box {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    gap: 8px;
+}
+
+.water-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.metrics {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Breakpoint Strategy Section Mobile Base */
+.metrics-section {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.metrics-section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    margin-bottom: 35px;
+    font-size: 0.95rem;
+}
+
+.metrics-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.metric-card {
+    background-color: var(--light-bg);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+    border-top: 4px solid var(--primary);
+}
+
+.breakpoint-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.metric-card h3 {
+    margin-bottom: 8px;
+}
+
+.metric-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Flexbox Segment Mobile Base */
+.flexbox-section {
+    padding: 50px 20px;
+}
+
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.flexbox-text h2 {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+}
+
+.flexbox-text p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.spec-list {
+    list-style: none;
+}
+
+.spec-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.spec-list code {
+    background-color: var(--accent-blue);
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.flexbox-demo-box {
+    display: flex;
+    flex-direction: column; /* Stacks display vertically on mobile - Page 10 */
+    gap: 12px;
+}
+
+.box-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px dashed var(--primary);
+    font-weight: 600;
+    text-align: center;
+    color: var(--primary);
+}
+
+/* Footer layout */
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: var(--dark);
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+
+/* --- 💻 3. MEDIA QUERIES (The System Breakpoints - Page 8, 9) --- */
+
+/* SMARTPHONES EXPANSION (480px and up) */
+@media (min-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+    .fluid-box {
+        height: 300px;
+    }
+}
+
+/* TABLET VIEWPORT INTERACTION (768px and up) */
+@media (min-width: 768px) {
+    .hero {
+        padding: 60px 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+
+    .metrics-section, .flexbox-section {
+        padding: 60px 40px;
+    }
+
+    /* Wrap grid into dual configurations for Tablet structural views */
+    .metrics-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .metric-card {
+        flex: 1 1 calc(50% - 20px);
+    }
+    
+    /* Make the third card take full width on tablet layout if needed */
+    .metrics-grid .metric-card:nth-child(3) {
+        flex: 1 1 100%;
+    }
+}
+
+/* DESKTOP HIGH-RESOLUTION MODE (1024px and up) */
+@media (min-width: 1024px) {
+    /* Hide Mobile Hamburg Elements fully */
+    .hamburger-label {
+        display: none;
+    }
+
+    /* Restore static persistent desktop structures */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+        color: var(--primary);
+    }
+
+    /* Flex direction switches from column to horizontal row layouts (Page 10) */
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        padding: 80px 100px;
+        gap: 60px;
+    }
+
+    .hero-content, .hero-image {
+        flex: 1;
+    }
+
+    .hero-content h1 {
+        font-size: 3.8rem;
+    }
+
+    /* Metrics configurations shift to explicit 3 column layouts */
+    .metrics-section, .flexbox-section {
+        padding: 80px 100px;
+    }
+
+    .metrics-grid {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 25px;
+    }
+
+    .metric-card {
+        flex: 1;
+    }
+
+    .metrics-grid .metric-card:nth-child(3) {
+        flex: 1;
+    }
+
+    /* Flexbox 1D Specialist Desktop Layout configurations */
+    .flexbox-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .flexbox-text, .flexbox-demo-box {
+        flex: 1;
+    }
+
+    .flexbox-demo-box {
+        flex-direction: row; /* Horizontal axis distribution from Page 10 specs */
+    }
+    
+    .box-item {
+        flex: 1;
+    }
+}
