@@ -4,7 +4,7 @@ An industry-grade, fully responsive landing page built as part of the Frontend D
 
 ## 🚀 Live Demo
 You can view the live deployment of this project here: 
-👉 **[https://github.com/pkyadav-png/DecodeLabs-Internship-Project-2 / Live Link :- https://pkyadav-png.github.io/DecodeLabs-Internship-Project-2/]**
+👉 **[Github Pages Link :- https://github.com/pkyadav-png/DecodeLabs-Internship-Project-2 / Live Link :- https://pkyadav-png.github.io/DecodeLabs-Internship-Project-2/]**
 
 ---
 
